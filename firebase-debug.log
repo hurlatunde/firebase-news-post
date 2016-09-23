@@ -1,0 +1,15 @@
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /usr/local/Cellar/node/6.3.1/bin/node /usr/local/bin/firebase serve
+[debug] CLI Version:  3.0.7
+[debug] Platform:     darwin
+[debug] Node Version: v6.3.1
+[debug] Time:         Fri Sep 23 2016 18:46:36 GMT+0100 (WAT)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: /Applications/MAMP/htdocs/tutorial/swallow-blog
+[warn] ⚠  Port 5000 is not available. Trying another port...
+[info] Public Directory: app
+[info] 
+[info] Server listening at: http://localhost:5001
