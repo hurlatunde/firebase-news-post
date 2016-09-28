@@ -27,6 +27,7 @@ var CONFIG = (function () {
         'home':              '/layouts/home.html',
         'page_loading':      '/layouts/page_loading.html',
         '404':               '/layouts/error/404.html',
+        'posts':   '/layouts/posts.html',
     };
 
     var constants = {
@@ -35,11 +36,11 @@ var CONFIG = (function () {
     };
 
     var firebase_config = {
-        apiKey: 'AIzaSyA0hcVtmIPWUHPQGppNsdTNyckIBhLK974',
-        authDomain: 'swallow-blog.firebaseapp.com',
-        databaseURL: 'https://swallow-blog.firebaseio.com',
-        storageBucket: 'swallow-blog.appspot.com',
-        messagingSenderId: '344387098877'
+        apiKey: 'AIzaSyCP9PMv-WPyOq1sKbfhU8C18OyqnipJb0o',
+        authDomain: 'swalllow-blog.firebaseapp.com',
+        databaseURL: 'https://swalllow-blog.firebaseio.com',
+        storageBucket: 'swalllow-blog.appspot.com',
+        messagingSenderId: '617722433053'
     };
 
     return {
@@ -71,15 +72,9 @@ var swallowVersion = CONFIG.private('app_version');
 var debug = CONFIG.private('debug');
 
 /**
- * Default SwallowJs main page URL
+ * Default SwallowJs firebaseConfig
  */
-var baseUrl = getAbsolutePath();
-
-/**
- * Default SwallowJs absolute Path
- * getting current page
- */
-var currentPathPage = getAbsolutePath(false);
+var firebaseConfig = CONFIG.firebaseConfig('firebase_config')
 
 /**
  *
@@ -115,7 +110,16 @@ function logMessage() {
 function getAbsolutePath(baseUrl) {
     var loc = window.location;
     if (baseUrl == false) {
-        return window.location.pathname;
+        var p = loc.hash.replace('#/','');
+        p = p.toLowerCase().trim();
+        if(p.indexOf('/') > -1) {
+            var arr = p.split('/');
+            return arr[0];
+        } else if (loc.hash == "#/") {
+            return "/";
+        } else {
+            return p;
+        }
     }
     var pathName = loc.pathname.substring(0, loc.pathname.lastIndexOf('/') + 1);
     return loc.href.substring(0, loc.href.length - ((loc.pathname + loc.search + loc.hash).length - pathName.length));
@@ -150,3 +154,5 @@ function formToArray(formData) {
     }
     return dataArray;
 }
+
+//var ref =  firebase.initializeApp(CONFIG.firebaseConfig('firebase_config'));

@@ -28,3 +28,17 @@
 [info] Public Directory: app
 [info] 
 [info] Server listening at: http://localhost:5001
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /usr/local/Cellar/node/6.3.1/bin/node /usr/local/bin/firebase serve
+[debug] CLI Version:  3.0.7
+[debug] Platform:     darwin
+[debug] Node Version: v6.3.1
+[debug] Time:         Sun Sep 25 2016 07:17:42 GMT+0100 (WAT)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: /Applications/MAMP/htdocs/tutorial/swallow-blog
+[info] Public Directory: app
+[info] 
+[info] Server listening at: http://localhost:5000

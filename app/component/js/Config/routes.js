@@ -15,12 +15,27 @@
  * @since         SwallowJs(tm) v 0.2.9
  */
 
+
+/**
+ * Add your route here
+ */
+
 /**
  * index.html
  * landing page. (This is the first page you see)
  */
 Path.map("#/").to(function () {
-    renderLayout('home', swallowJsContainer, {see: 'ssssss'});
+    renderLayout('home', swallowJsContainer);
+}).enter(clearPanel);
+
+Path.map("#/posts").to(function () {
+    renderLayout('posts', swallowJsContainer);
+    // FirebaseModal.findAll({
+    //     node: 'posts',
+    //     callBackData: function(data) {
+    //         logMessage(data);
+    //     }
+    // });
 }).enter(clearPanel);
 
 Path.map("#/about").to(function () {
@@ -43,6 +58,42 @@ Path.map("#/about").to(function () {
 //
 // });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * end your route here
+ */
+
 Path.rescue(notFound);
 Path.root("#/");
 
@@ -63,4 +114,7 @@ function clearPanel() {
 /**
  * listen (Always as to be at the bottom of this page)
  */
-Path.listen();
+function initPath(){
+    Path.listen();
+    logMessage('**** SwallowJs is route is working perfectly ****');
+}
