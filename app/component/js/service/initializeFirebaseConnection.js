@@ -32,6 +32,10 @@ if (firebaseConfig.apiKey != 'APP-API-KEY' || firebaseConfig.databaseURL != 'APP
 
 FirebaseDataModal = function(name_var) {
     this.init(name_var);
+
+    function callBackResponse(params) {
+
+    }
 };
 
 $.extend(FirebaseDataModal.prototype, {
@@ -44,21 +48,52 @@ $.extend(FirebaseDataModal.prototype, {
     },
 
     /**
-     * Firebase findAll
-     * @return List of all node
-     * @param p {node, limit, callBackData}
+     *
+     * @param params
+     * @param callBackData
      */
-    findAll: function(p) {
-        var node = p.node;
-        var limit = p.limit;
-        var callBackData = p.callBackData;
-        logMessage('**** Firebase making connection ****');
+    delete: function (params, callBackData) {
 
-        //firebaseBaseDatabase.ref(p.node).orderByChild('user_id').equalTo(user_id);
+    },
 
+    /**
+     *
+     * @param params
+     * @param callBackData
+     */
+    update: function (params, callBackData) {
+
+    },
+
+    /**
+     *
+     * @param params
+     * @param callBackData
+     */
+    save: function (params, callBackData) {
+
+    },
+
+    /**
+     *
+     * @param params
+     * @param callBackData
+     */
+    findOne: function (params, callBackData) {
+
+    },
+
+    /**
+     *
+     * @param params
+     * @param callBackData
+     */
+    findAll: function(params, callBackData) {
+        var node = params.node;
+        var limit = params.limit;
         var nodeRef;
 
-        if (limit) {
+        if (limit && limit != "") {
             if(Math.floor(limit) == limit && $.isNumeric(limit)) {
                 nodeRef = firebaseBaseDatabase.ref(node).limitToLast(limit);
             } else {
@@ -72,7 +107,7 @@ $.extend(FirebaseDataModal.prototype, {
         }
 
         /**
-         * Make request to firebase database
+         * Make request to firebase database and listen to changes
          */
         nodeRef.on('value', function (snapshot) {
             logMessage('**** Firebase database data return ****');
@@ -97,11 +132,8 @@ $.extend(FirebaseDataModal.prototype, {
 
             callBackData({data: data});
         }, function (error) {
-            callBackData(error, true);
+            callBackData({error: error});
         });
-
-        // an example object method
-        //alert('my name is '+this.widget_name);
     }
 });
 

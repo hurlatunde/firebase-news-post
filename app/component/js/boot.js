@@ -32,8 +32,8 @@ $().ready(function () {
          * SwallowJs system config (config.js)
          * SwallowJs (utilities)
          */
-        //$.getScript('/component/js/service/initializeFirebaseConnection.js'),
-        //$.getScript('/component/js/service/initializeServerSideConnection.js'),
+        $.getScript('/component/js/service/initializeFirebaseConnection.js'),
+        $.getScript('/component/js/service/initializeServerSideConnection.js'),
 
         /**
          * SwallowJs (layout)
@@ -44,6 +44,17 @@ $().ready(function () {
     ).done(function (s) {
         $(initPath);
         logMessage('**** SwallowJs is working perfectly ****');
+
+        /**
+         * your javascript codes here
+         */
+
+
+
+
+
+
+
 
         /**
          * your javascript codes here

@@ -29,17 +29,23 @@ Path.map("#/").to(function () {
 }).enter(clearPanel);
 
 Path.map("#/posts").to(function () {
-    renderLayout('posts', swallowJsContainer);
-    // FirebaseModal.findAll({
-    //     node: 'posts',
-    //     callBackData: function(data) {
-    //         logMessage(data);
-    //     }
-    // });
+
+    FirebaseModal.findAll({
+        node: 'posts',
+    }, function(data) {
+        logMessage(data);
+        if(!data.error) {
+            renderLayout('posts', swallowJsContainer, data);
+        } else {
+            logMessage(data.error);
+        }
+    });
+
 }).enter(clearPanel);
 
-Path.map("#/about").to(function () {
-    renderLayout('about', swallowJsContainer);
+Path.map("#/posts/view/:post_id").to(function () {
+    var postId = this.params["user_id"];
+    logMessage(postId);
 }).enter(clearPanel);
 
 // Path.map("#/users/:user_id/:user_family").to(function () {
